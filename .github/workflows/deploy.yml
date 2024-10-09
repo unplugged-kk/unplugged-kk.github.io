@@ -11,12 +11,19 @@ jobs:
 
     steps:
     - name: Checkout code
-      uses: actions/checkout@v2
+      uses: actions/checkout@v4
 
     - name: Set up Ruby
       uses: ruby/setup-ruby@v1
       with:
-        ruby-version: 2.7
+        ruby-version: '3.2' # Update to the latest stable Ruby version
+        bundler-cache: false # Disable bundler-cache
+
+    - name: Update RubyGems and install latest Bundler
+      run: |
+        gem update --system
+        gem install bundler
+        bundle --version
 
     - name: Install dependencies
       run: bundle install
