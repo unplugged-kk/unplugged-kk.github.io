@@ -16,16 +16,17 @@ jobs:
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: '3.2' # Updated to latest stable Ruby version
-          bundler-cache: true # This will install and cache dependencies
+          ruby-version: '3.2'
+          bundler-cache: false # Disable bundler-cache
 
-      - name: Update RubyGems and Bundler
+      - name: Update RubyGems and install latest Bundler
         run: |
           gem update --system
           gem install bundler
 
       - name: Install dependencies
-        run: bundle install
+        run: |
+          bundle install
 
       - name: Build site
         run: bundle exec jekyll build
