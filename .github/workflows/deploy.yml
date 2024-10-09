@@ -16,15 +16,19 @@ jobs:
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: '3.0' # or your preferred version
+          ruby-version: '3.2' # Updated to latest stable Ruby version
+          bundler-cache: true # This will install and cache dependencies
+
+      - name: Update RubyGems and Bundler
+        run: |
+          gem update --system
+          gem install bundler
 
       - name: Install dependencies
-        run: |
-          bundle install
+        run: bundle install
 
       - name: Build site
-        run: |
-          bundle exec jekyll build
+        run: bundle exec jekyll build
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
