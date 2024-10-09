@@ -24,3 +24,6 @@ exclude:
 
 # Other settings
 highlighter: rouge
+
+# Add this line
+repository: unplugged-kk/unplugged-kk.github.io

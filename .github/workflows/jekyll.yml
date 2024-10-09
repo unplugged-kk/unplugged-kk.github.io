@@ -34,6 +34,9 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Set PAGES_REPO_NWO
+        run: echo "PAGES_REPO_NWO=unplugged-kk/unplugged-kk.github.io" >> $GITHUB_ENV
+
       - name: Install ruby-build
         run: |
           git clone https://github.com/rbenv/ruby-build.git
